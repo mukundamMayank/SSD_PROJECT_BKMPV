@@ -16,9 +16,19 @@
 <body>
 
   <div class="container">
-    <h1 class="center">Hello 
+    <h2 class="center">Hello 
         {% if participant_id %}        {{ participant_id }}        {% endif %}
-    </h1>
+    </h2>
+    <h3>
+      {% for i in task_list %}
+    <div class="row">
+
+        {{ i }}
+        
+    </div>
+        {% endfor %}
+
+    </h3>
     <hr>
     <!-- <form action="/participants/login_home" method="post">
         <button type="submit" class="btn btn-outline-success">Log out</button>

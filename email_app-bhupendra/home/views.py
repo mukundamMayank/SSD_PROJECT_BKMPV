@@ -5,6 +5,7 @@ from django.conf import settings
 from django.core.mail import send_mail
 import hashlib
 from home.models import participants
+from home.models import Tasks
 from django.contrib.auth import authenticate
 from home.models import participants
 from django.views.decorators.csrf import csrf_protect
@@ -54,4 +55,8 @@ def login(request):
         if len(result)==0:
             return render(request,'login_home.html',{'error':'Username/Password Incorrect'})
         else:
-            return render(request,'participant_login.html',{'participant_id':id})
+            task_list = []
+            for i in range(1, 10):
+            	task_list.append("task " + str(i))
+            	Tasks(task_name=task_list[i-1])
+            return render(request,'participant_login.html',{'participant_id':id, 'task_list':task_list})

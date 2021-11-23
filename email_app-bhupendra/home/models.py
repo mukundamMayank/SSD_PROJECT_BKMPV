@@ -8,3 +8,6 @@ class participants(models.Model):
     task_id=models.CharField(max_length=100)
     recording_url=models.CharField(max_length=100)
     notes_url=models.CharField(max_length=100)
+
+class Tasks(models.Model):
+	task_name = models.CharField(max_length = 100, primary_key=True)
