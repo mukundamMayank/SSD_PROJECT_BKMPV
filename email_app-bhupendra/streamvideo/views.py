@@ -5,11 +5,12 @@ from streamvideo.camera import VideoCamera
 from django.http import FileResponse
 import imageio
 import cv2
+from streamvideo.models import recording
 
 to_record = False
 cam = VideoCamera()
 resume = True
-temp_file = './streamvideo/templates/filename.mp4'
+temp_file = './streamvideo/temp/temp.mp4'
 # result = cv2.VideoWriter('./streamvideo/templates/filename.mp4', 
 #                              cv2.VideoWriter_fourcc(*'avc1'),
 #                              25, cam.size)
@@ -17,7 +18,7 @@ temp_file = './streamvideo/templates/filename.mp4'
 writer = imageio.get_writer(temp_file, fps=25)
 
 def index(request):
-    return render(request, 'home.html')
+    return render(request, 'record.html')
 
 def gen():
     while True:
@@ -69,3 +70,12 @@ def pause_vid(request):
     else:
         return Http404
     
+def upload(request):
+    if request.method=='POST':
+        user_id = request.POST.get('user_id')
+        task_id = request.POST.get('task_id')
+        rec_id = request.POST.get('rec_id')
+        recording(user_id=user_id,task_id=task_id,rec_id=rec_id)
+        return render(request,'add_home.html',{'success':'Recording Uploaded Successfully'})
+    else:
+        return render(request, 'add_home.html', {'error': 'POST req not found.'})

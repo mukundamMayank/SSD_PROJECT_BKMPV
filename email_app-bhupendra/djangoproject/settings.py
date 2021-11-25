@@ -40,7 +40,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     #added manually
     # 'rest_api_framework',
-    'home.apps.HomeConfig'
+    'home.apps.HomeConfig',
+    'streamvideo.apps.StreamvideoConfig'
 ]
 
 MIDDLEWARE = [
