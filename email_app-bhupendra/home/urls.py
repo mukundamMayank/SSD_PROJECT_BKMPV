@@ -6,9 +6,13 @@ from home import views
 urlpatterns = [
     path('', views.index , name='home'),
     path('send', views.send , name='send'),
-    path('participants', views.participant_home,name='participant'),
-    path('participants/add_home', views.add_home,name='participantAdd'),
-    path('participants/login_home', views.login_home,name='participantLogin'),
-    path('participants/add', views.add,name='participantAdd'),
-    path('participants/login', views.login,name='participantLogin'),
+    path('observer', views.observer_home,name='observer'),
+    path('observer/add_home', views.add_home,name='observerAdd'),
+    path('observer/login_home', views.login_home,name='observerLogin'),
+    path('observer/signup', views.signup,name='observerSignup'),
+    path('observer/login', views.login,name='observerLogin'),
+    path('observer/add_task', views.add_task,name='observerAddTask'),
+    path('observer/logout', views.logout,name='observerAddTask'),
+    path('participant/activity', views.participant_activity,name='participantActivity'),
+    path('participant/perform_task', views.perform_task,name='participantPerformTask'),
 ]

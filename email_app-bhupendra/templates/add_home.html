@@ -10,7 +10,7 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 
-  <title>Participant Home</title>
+  <title>Observer Home</title>
 </head>
 
 <body>
@@ -27,7 +27,7 @@
               <a class="nav-link" aria-current="page" href="/">Email</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link active" href="/participants">Participants</a>
+              <a class="nav-link active" href="/observer">observer</a>
             </li>
           </ul>
         </div>
@@ -35,13 +35,13 @@
     </nav>
   </div>
   <div class="container">
-    <h1 class="center">Welcome to Participant Page!</h1>
+    <h1 class="center">Welcome to Observer Page!</h1>
     <hr>
-    <form action="/participants/add" method="post">
+    <form action="/observer/signup" method="post">
         {% csrf_token %}
-        <input type="text" name="participant_id" placeholder="ID">
-        <input type="text" name="participant_email" placeholder="Email">
-        <input type="text" name="participant_password" placeholder="Password">
+        <input type="text" name="observer_id" placeholder="ID" required>
+        <input type="text" name="observer_email" placeholder="Email" required>
+        <input type="text" name="observer_password" placeholder="Password" required>
         <button type="submit" class="btn btn-outline-success">Sign Up</button>
     </form>
     <!-- {% if error %} -->
