@@ -70,7 +70,7 @@ def login(request):
                 return render(request,'observer_login.html',{'observer_id':request.session.get('id',""),'task_list':tasks})
 
 def logout(request):
-    request.session['id']=id
+    request.session['id']=""
     return render(request,'login_home.html')
 
 # def observer_home(request):
