@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div class="row">
+    <div class="col-sm-6 first-column">hello</div>
+    <div class="col-sm-6 second-column">purnima</div>
+</div>
+<div class="row">
+  <div class="col-6">
+      <video width="620" height="440" controls>
+  <source src="{{path}}" type="video/mp4">
+  .
+</video>
+  </div>
+    <div class="col-6">
+         <h2 class="text-center">Feedback Form</h2>
+        <form method="POST" action="/notes_submission">
+            {% csrf_token %}
+          <div class="form-group">
+          <label for="feedback"></label>
+          <textarea class="form-control rounded-0" id="feedback" name="feedback" rows="10"></textarea>
+        </div>
+
+
+  <button type="submit" class="btn btn-primary"  >Submit</button>
+</form>
+    </div>
+</div>
+</body>
+</html>
